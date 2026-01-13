@@ -176,7 +176,7 @@ var E=Object.create;var g=Object.defineProperty;var O=Object.getOwnPropertyDescr
 }\r
 \r
 .trigger-clear:hover {\r
-  color: #333; /* Color al pasar el mouse */\r
+  color: #d00; /* Rojo al pasar el mouse */\r
 }\r
 \r
 /* 1. L\xD3GICA DE VISIBILIDAD */\r
