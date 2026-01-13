@@ -1,0 +1,27 @@
+{
+  "name": "custom-widgets",
+  "version": "1.0.1",
+  "description": "",
+  "license": "ISC",
+  "author": "Gabriel Hauschildt",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "// --- BUILD ---": "",
+    "build:table": "esbuild ../../WEB-COMPONENTS/PROJECTS/src/components/table/js/com-ggh-table.js --bundle --loader:.css=text --format=esm --minify --outfile=./gghtable.bundle.js",
+    "build:filter": "esbuild ../../WEB-COMPONENTS/PROJECTS/src/components/filter/js/com-ggh-filter.js --bundle --loader:.css=text --format=esm --minify --outfile=./gghfilter.bundle.js",
+    "// --- FLUJO DE PUBLICACIÓN ---": "",
+    "prepublish-cdn": "npm run build:table  && npm run build:filter",
+    "// --- ACTUALIZACIÓN DE CACHÉ ---": "",
+    "purge": "curl -X POST purge.jsdelivr.net",
+    "publish-cdn": "git add --all && git commit -m \"build: release v1.0.1\" && git push --tags --force origin main && timeout 5 && gh release create v1.0.1 --generate-notes && npm run purge",
+    "// --- RELEASE ---": "",
+    "release": "standard-version",
+    "release-cdn": "npm run prepublish-cdn && npm run publish-cdn"
+  },
+  "devDependencies": {
+    "esbuild": "^0.27.2",
+    "standard-version": "^9.5.0"
+  }
+}
