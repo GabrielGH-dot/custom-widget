@@ -1,6 +1,6 @@
 {
   "name": "custom-widgets",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "",
   "license": "ISC",
   "author": "Gabriel Hauschildt",
@@ -15,7 +15,7 @@
     "prepublish-cdn": "npm run build:table  && npm run build:filter",
     "// --- ACTUALIZACIÓN DE CACHÉ ---": "",
     "purge": "curl -X POST purge.jsdelivr.net",
-    "publish-cdn": "git add --all && git commit -m \"build: release v1.0.1\" && git push --tags --force origin main && timeout 5 && gh release create v1.0.1 --generate-notes && npm run purge",
+    "publish-cdn": "git add --all && git commit -m \"build: release v1.0.0\" && git push --tags --force origin main && timeout 5 && gh release create v1.0.0 --generate-notes && npm run purge",
     "// --- RELEASE ---": "",
     "release": "standard-version",
     "release-cdn": "npm run prepublish-cdn && npm run publish-cdn"
